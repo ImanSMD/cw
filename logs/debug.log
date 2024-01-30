@@ -1,0 +1,28 @@
+INFO 2024-01-30 17:50:46,516 autoreload 14347 140269537513472 Watching for file changes with StatReloader
+INFO 2024-01-30 17:51:06,570 basehttp 14347 140269484877376 "GET /admin/ HTTP/1.1" 200 8466
+INFO 2024-01-30 17:51:13,096 basehttp 14347 140269484877376 "GET /admin/order/order/ HTTP/1.1" 200 11456
+INFO 2024-01-30 17:51:13,125 basehttp 14347 140269484877376 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-01-30 17:51:18,777 basehttp 14347 140269484877376 "GET /admin/order/order/1/change/ HTTP/1.1" 200 10356
+INFO 2024-01-30 17:51:18,797 basehttp 14347 140269484877376 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-01-30 17:51:29,548 basehttp 14347 140269484877376 "POST /admin/order/order/1/change/ HTTP/1.1" 302 0
+INFO 2024-01-30 17:51:29,594 basehttp 14347 140269484877376 "GET /admin/order/order/ HTTP/1.1" 200 11652
+INFO 2024-01-30 17:51:29,683 basehttp 14347 140269484877376 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2024-01-30 17:51:51,937 views 14347 140269484877376 Order 1 marked as completed by user at 2024-01-30 17:51:51.937443+00:00
+ERROR 2024-01-30 17:51:51,988 log 14347 140269484877376 Internal Server Error: /mail/1
+Traceback (most recent call last):
+  File "/home/smd/Desktop/django/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/smd/Desktop/django/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/smd/Desktop/django/cw/order/views.py", line 33, in mark_order_completed
+    return redirect("your_desired_page")
+  File "/home/smd/Desktop/django/venv/lib/python3.10/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "/home/smd/Desktop/django/venv/lib/python3.10/site-packages/django/shortcuts.py", line 179, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/smd/Desktop/django/venv/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/smd/Desktop/django/venv/lib/python3.10/site-packages/django/urls/resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'your_desired_page' not found. 'your_desired_page' is not a valid view function or pattern name.
+ERROR 2024-01-30 17:51:51,989 basehttp 14347 140269484877376 "GET /mail/1 HTTP/1.1" 500 84305
